@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
-
+#include "Tank.h"
 
 
 void ATankPlayerController::BeginPlay()
@@ -9,15 +9,6 @@ void ATankPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	auto ControlledTank = GetControlledTank();
-	
-	if (!ControlledTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("No player controlled tank!"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Controlled Tank: %s"), *(ControlledTank->GetName()));
-	}
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
