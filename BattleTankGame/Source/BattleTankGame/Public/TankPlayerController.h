@@ -8,7 +8,12 @@
 #include "TankPlayerController.generated.h"
 
 class ATank;
+class UTankAimingComponent;
 
+
+/**
+ * 
+ */
 UCLASS()
 class BATTLETANKGAME_API ATankPlayerController : public APlayerController
 {
@@ -17,6 +22,13 @@ class BATTLETANKGAME_API ATankPlayerController : public APlayerController
 public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
+
+protected:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	ATank* GetControlledTank() const;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
 
 private:
 	UPROPERTY(EditDefaultsOnly)
@@ -28,7 +40,7 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float LineTraceRange = 1000000.0f;
 
-	ATank* GetControlledTank() const;
+	
 
 	// Start the tank moving the barrel so that it hits where the barrel intersects the world.
 	void AimTowardsCrosshair();
