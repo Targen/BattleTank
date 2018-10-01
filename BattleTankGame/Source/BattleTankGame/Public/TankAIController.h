@@ -7,8 +7,12 @@
 #include "Engine/World.h"
 #include "TankAIController.generated.h"
 
-class ATank;
+class UTankAimingComponent;
 
+
+/**
+ *
+ */
 UCLASS()
 class BATTLETANKGAME_API ATankAIController : public AAIController
 {
